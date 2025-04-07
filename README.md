@@ -49,7 +49,7 @@ TinyGate is a simple and efficient URL shortener built with Node.js, Express, an
 - [ ] Add website blacklist to block websites with harmful content
 - [ ] Host the website online
 - [ ] Add custom short urls
-- [ ] Copy Button for generated short links
+- [x] Copy Button for generated short links
 - [ ] Dark Mode Toggle
 
 ## Contributing
