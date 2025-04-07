@@ -3,10 +3,12 @@ const mongoose = require("mongoose");
 const ShortUrls = require("./models/shortUrl");
 const shortID = require('shortid')
 const app = express();
+const Path = require("path");
 
 mongoose.connect("mongodb://localhost:27017/");
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
+app.use(express.static(Path.join(__dirname)));
 
 app.get("/", async (req, res) => {
   res.render("MainUrlPage");
