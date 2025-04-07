@@ -9,30 +9,38 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
 
 app.get("/", async (req, res) => {
-  res.render("index");
+  res.render("MainUrlPage");
+});
+
+app.get("/MainUrlPage", async (req, res) => {
+  res.render("MainUrlPage");
+});
+
+app.get("/HomePage", async (req, res) => {
+  res.render("HomePage");
 });
 
 app.post("/shortUrls", async (req, res) => {
   try {
-    console.log("Request body:", req.body);
     if (!req.body.longURL) {
       return res.status(400).send("Full URL is required.");
     }
-    
     const short = await ShortUrls.create({ fullURL: req.body.longURL});
-     //ShortUrls.findOne({ fullURL : req.body.longURL});
     console.log(short.shortURL);
     res.render("AfterShort", { message: short.shortURL });
   } catch (error) {
     console.error("Error creating short URL:", error);
-    res.status(500).send("Server Error");
+    if (error.code === 11000) {
+      return  res.render("pageexists");
+    }
+    res.status(500).send("Error");
   }
 });
 
 app.get("/:shortUrl", async (req, res) => {
   const short = await ShortUrls.findOne({ shortURL: req.params.shortUrl});
-  console.log("Searching for:", req.params.shortUrl);
-  console.log("Found:", short);
+  // console.log("Searching for:", req.params.shortUrl);
+  // console.log("Found:", short);
   if (!short) return res.render("urlNotFound");;
   short.clicks++;
   short.save();
