@@ -1,2 +1,9 @@
 node_modules
 .git
+BlackList/BlockList1.txt
+.gitignore
+BlackList/BlockList2.txt
+BlackList/BlockList2 - BlockList2.csv
+BlackList/Untitled spreadsheet - Sheet1.csv
+BlackList/urlhaus_full.json
+.env

@@ -9,19 +9,22 @@
 </head>
 
 <body>
-  <div ">
+  <header>
+    <div class="header-buttons">
+      <button><a href="/login">Login</a></button>
+      <button><a href="/signup">Register</a></button>
+    </div>
+  </header>
+  <div></div>
     <div class=" container" stlye="background-color: white; margin: auto; padding: 20px; border-radius: 12px; width: 50%;">
-    <h1>TinyGate v1.0</h1>
-    <form action="/shortUrls" method="POST" class="my-4 form-inline">
-      <input required placeholder="Paste your long URL here..." type="url" id="longURL" name="longURL" class="form-control col mr-2" />
-      <div>
+    <h1>TinyGate v2.0</h1>
+    <form action="/shortUrls" method="POST" >
+      <input required placeholder="Paste your long URL here..." type="url" id="longURL" name="longURL"/>
+      <input  placeholder="* Optional * Write Custom URL" id="CustomShortUrl" name="CustomShortUrl" />
+      <button type="submit">Shorten </button>
+    </form>
       </div>
-      <div>
-        <button type="submit">Shorten </button>
-      </div>
-  </div>
-
-
+      <div></div>
 </body>
 
 </html>
